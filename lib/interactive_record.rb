@@ -52,7 +52,7 @@ class InteractiveRecord
     key = attr_hash.keys.first == String ? attr_hash.keys.first : "'#{attr_hash.keys.first}'"
     value = attr_hash.values.first.class == Fixnum ? attr_hash.values.first : "'#{attr_hash.values.first}'"
     sql = "SELECT * FROM #{self.table_name} WHERE #{attr_hash.keys.first} = #{value}"
-    DB[:conn].execute(sql, key, value)
+    DB[:conn].execute(sql)
   end
 
 end
