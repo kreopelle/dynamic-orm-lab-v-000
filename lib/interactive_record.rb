@@ -49,7 +49,7 @@ class InteractiveRecord
   end
 
   def self.find_by(attr_hash)
-    key = attr_hash.keys.first
+    key = attr_hash.keys.first.to_s
     value = attr_hash.values.first.class == Fixnum ? attr_hash.values.first : "'#{attr_hash.values.first}'"
     sql = "SELECT * FROM #{self.table_name} WHERE ? = ?"
     DB[:conn].execute(sql, key, value)
